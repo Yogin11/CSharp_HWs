@@ -1,0 +1,15 @@
+H:\GEEKBRAINS\Programming\C_Sharp\HW_Csharp\HW1\obj\Debug\net6.0\HW1.csproj.AssemblyReference.cache
+H:\GEEKBRAINS\Programming\C_Sharp\HW_Csharp\HW1\obj\Debug\net6.0\HW1.GeneratedMSBuildEditorConfig.editorconfig
+H:\GEEKBRAINS\Programming\C_Sharp\HW_Csharp\HW1\obj\Debug\net6.0\HW1.AssemblyInfoInputs.cache
+H:\GEEKBRAINS\Programming\C_Sharp\HW_Csharp\HW1\obj\Debug\net6.0\HW1.AssemblyInfo.cs
+H:\GEEKBRAINS\Programming\C_Sharp\HW_Csharp\HW1\obj\Debug\net6.0\HW1.csproj.CoreCompileInputs.cache
+H:\GEEKBRAINS\Programming\C_Sharp\HW_Csharp\HW1\bin\Debug\net6.0\HW1.exe
+H:\GEEKBRAINS\Programming\C_Sharp\HW_Csharp\HW1\bin\Debug\net6.0\HW1.deps.json
+H:\GEEKBRAINS\Programming\C_Sharp\HW_Csharp\HW1\bin\Debug\net6.0\HW1.runtimeconfig.json
+H:\GEEKBRAINS\Programming\C_Sharp\HW_Csharp\HW1\bin\Debug\net6.0\HW1.dll
+H:\GEEKBRAINS\Programming\C_Sharp\HW_Csharp\HW1\bin\Debug\net6.0\HW1.pdb
+H:\GEEKBRAINS\Programming\C_Sharp\HW_Csharp\HW1\obj\Debug\net6.0\HW1.dll
+H:\GEEKBRAINS\Programming\C_Sharp\HW_Csharp\HW1\obj\Debug\net6.0\refint\HW1.dll
+H:\GEEKBRAINS\Programming\C_Sharp\HW_Csharp\HW1\obj\Debug\net6.0\HW1.pdb
+H:\GEEKBRAINS\Programming\C_Sharp\HW_Csharp\HW1\obj\Debug\net6.0\HW1.genruntimeconfig.cache
+H:\GEEKBRAINS\Programming\C_Sharp\HW_Csharp\HW1\obj\Debug\net6.0\ref\HW1.dll
