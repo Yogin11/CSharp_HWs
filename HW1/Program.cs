@@ -25,17 +25,36 @@ a = -9 b = -3 -> max = -3
 22 3 9 -> 22
 */
 
-Console.Write("Введите первое число: ");
+// Console.Write("Введите первое число: ");
+// int a = int.Parse(Console.ReadLine()!);
+// Console.Write("Введите второе число: ");
+// int b = int.Parse(Console.ReadLine()!);
+// Console.Write("Введите третье число: ");
+// int c = int.Parse(Console.ReadLine()!);
+// int max = a;
+// if (b > max  & b > c ) { 
+//     max = b;
+// } 
+// else if (c > max & c > b) { 
+//     max = c; 
+// }
+// Console.WriteLine ("Максимум равен " + max);
+
+/* Задача 6: Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка).
+
+4 -> да
+-3 -> нет
+7 -> нет
+*/
+
+Console.Write("Введите число: ");
 int a = int.Parse(Console.ReadLine()!);
-Console.Write("Введите второе число: ");
-int b = int.Parse(Console.ReadLine()!);
-Console.Write("Введите третье число: ");
-int c = int.Parse(Console.ReadLine()!);
-int max = a;
-if (b > max  & b > c ) { 
-    max = b;
-} 
-else if (c > max & c > b) { 
-    max = c; 
+if (a%2 == 0)
+{
+Console.WriteLine ("Число чётное");
 }
-Console.WriteLine ("Максимум равен " + max);
+else
+{
+Console.WriteLine ("Число нечётное");   
+}
+
