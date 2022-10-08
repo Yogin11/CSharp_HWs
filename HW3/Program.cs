@@ -24,22 +24,22 @@
 // }
 
 // Вариант 2 (Строковый)
-bool g = true;
-int n = 0;
-while (g)
-{
-    Console.WriteLine("Введите пятизначное число");
-    string x = Console.ReadLine()!;
-    if (x.Length == 5)
-    {
-        g = false;
-        for (int i = 0; i < (x.Length) / 2; i++)
-            if (x[i] == x[x.Length - 1 - i]) n++;
-        if (n == (x.Length) / 2) Console.WriteLine("Число палиндром ");
-        else Console.WriteLine("Число не палиндром");
-    }
-    else Console.WriteLine("Вы ввели не пятизначное число, ");
-}
+// bool g = true;
+// int n = 0;
+// while (g)
+// {
+// Console.WriteLine("Введите пятизначное число");
+// string x = Console.ReadLine()!;
+// if (x.Length == 5)
+// {
+// g = false;
+// for (int i = 0; i < (x.Length) / 2; i++)
+// if (x[i] == x[x.Length - 1 - i]) n++;
+// if (n == (x.Length) / 2) Console.WriteLine("Число палиндром ");
+// else Console.WriteLine("Число не палиндром");
+// }
+// else Console.WriteLine("Вы ввели не пятизначное число, ");
+// }
 
 /*
 Задача 21
@@ -50,3 +50,25 @@ A (3,6,8); B (2,1,-7), -> 15.84
 
 A (7,-5, 0); B (1,-1,9) -> 11.53
 */
+
+int[] A = new int[3];
+int[] B = new int[3];
+double S = 0;
+for (int i = 0; i < 3; i++)
+{
+    Console.Write($"Введите {i + 1}-ю координату точки A: ");
+    A[i] = int.Parse(Console.ReadLine()!);
+    Console.Write($"Введите {i + 1}-ю координату точки B: ");
+    B[i] = int.Parse(Console.ReadLine()!);
+    S = S + Math.Pow(A[i] - B[i], 2);
+    Console.WriteLine();
+}
+S = Math.Sqrt(S);
+Console.WriteLine($"Расстояние между ними = {S:f2}");
+
+
+
+
+
+
+
