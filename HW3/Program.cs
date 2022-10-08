@@ -51,23 +51,33 @@ A (3,6,8); B (2,1,-7), -> 15.84
 A (7,-5, 0); B (1,-1,9) -> 11.53
 */
 
-int[] A = new int[3];
-int[] B = new int[3];
-double S = 0;
-for (int i = 0; i < 3; i++)
-{
-    Console.Write($"Введите {i + 1}-ю координату точки A: ");
-    A[i] = int.Parse(Console.ReadLine()!);
-    Console.Write($"Введите {i + 1}-ю координату точки B: ");
-    B[i] = int.Parse(Console.ReadLine()!);
-    S = S + Math.Pow(A[i] - B[i], 2);
-    Console.WriteLine();
-}
-S = Math.Sqrt(S);
-Console.WriteLine($"Расстояние между ними = {S:f2}");
+// int A = 0;
+// int B = 0;
+// double S = 0;
+// for (int i = 0; i < 3; i++)
+// {
+// Console.Write($"Введите {i + 1}-ю координату точки A: ");
+// A = int.Parse(Console.ReadLine()!);
+// Console.Write($"Введите {i + 1}-ю координату точки B: ");
+// B = int.Parse(Console.ReadLine()!);
+// S = S + Math.Pow(A - B, 2);
+// Console.WriteLine();
+// }
+// S = Math.Sqrt(S);
+// Console.WriteLine($"Расстояние между ними = {S:f2} \n");
 
+/*
+Задача 23
+Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
 
+3 -> 1, 8, 27
+5 -> 1, 8, 27, 64, 125
+*/
 
+Console.Write("Введите число: ");
+int N = int.Parse(Console.ReadLine()!);
+for (int i = 1; i <= N; i++)
+    Console.Write($"{Math.Pow(i, 3)}\t");
 
 
 
