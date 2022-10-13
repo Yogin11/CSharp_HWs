@@ -29,19 +29,41 @@
 82 -> 10
 9012 -> 12
 */
-int SumDigits(int a)
+// int SumDigits(int a)
+		// {	
+			// int sum = 0;
+			// do
+			// {
+				// sum +=a%10;
+				// a=a/10;
+			// }
+			// while (a!=0);
+		// return Math.Abs(sum);
+		// }
+	// Console.Write("Введите число А: ");
+    // int A = int.Parse(Console.ReadLine()!);
+	// Console.WriteLine($"Сумма цифр в числе {A} равно {SumDigits(A)}");
+
+
+/*
+Задача 29: Напишите программу, которая задаёт массив из 8 элементов и 
+выводит их на экран.
+
+1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
+6, 1, 33 -> [6, 1, 33]
+*/
+using System;
+	void FillArray(int[] arr)
 		{	
-			int sum = 0;
-			do
+			for (int i =0; i < arr.Length; i++)
 			{
-				sum +=a%10;
-				a=a/10;
+				arr[i] = new Random().Next(-300,300);
 			}
-			while (a!=0);
-		return Math.Abs(sum);
 		}
-	Console.Write("Введите число А: ");
-    int A = int.Parse(Console.ReadLine()!);
-	Console.WriteLine($"Сумма цифр в числе {A} равно {SumDigits(A)}");
+	int[] array = new int[8];	
+	FillArray(array);
+    Console.Clear();
+    Console.Write($"[{String.Join(',', array)}]\n");
+    Console.WriteLine();
 
 
