@@ -39,18 +39,54 @@
 b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 */
 
+// Console.Clear();
+// Console.WriteLine("Даны уравнения прямых: y = k1 * x + b1 и y = k2 * x + b2");
+// Console.Write("введите коэффицент k1: ");
+// double k1 = double.Parse(Console.ReadLine()!);
+// Console.Write("введите коэффицент b1: ");
+// double b1 = double.Parse(Console.ReadLine()!);
+// Console.Write("введите коэффицент k2: ");
+// double k2 = double.Parse(Console.ReadLine()!);
+// Console.Write("введите коэффицент b2: ");
+// double b2 = double.Parse(Console.ReadLine()!);
+// double x = (b2 - b1) / (k1 - k2);
+// double y = k1 * x + b1;
+// Console.WriteLine();
+// Console.WriteLine($"Координаты точки пересечения прямых: ({x:f2} ; {y:f2})");
+// Console.WriteLine();
+
+/*
+Дополнительная задача.
+Найти произведение всех элементов массива целых чисел, меньших заданного числа. 
+Размерность массива –10. Заполнение массива осуществить случайными числами от 50 до 100.
+*/
+
+void FillArray(int[] massiv)
+{
+    for (int i = 0; i < massiv.Length; i++)
+        massiv[i] = new Random().Next(50, 100);
+}
+
+double Multiply(int[] massiv, int x)
+{
+    int mnozh = 1;
+    for (int i = 0; i < massiv.Length; i++)
+    {
+        if (massiv[i] < x)
+            mnozh = mnozh * massiv[i];
+    }
+    if (mnozh > 1) return mnozh;
+    else return 0;
+}
+
 Console.Clear();
-Console.WriteLine("Даны уравнения прямых: y = k1 * x + b1 и y = k2 * x + b2");
-Console.Write("введите коэффицент k1: ");
-double k1 = double.Parse(Console.ReadLine()!);
-Console.Write("введите коэффицент b1: ");
-double b1 = double.Parse(Console.ReadLine()!);
-Console.Write("введите коэффицент k2: ");
-double k2 = double.Parse(Console.ReadLine()!);
-Console.Write("введите коэффицент b2: ");
-double b2 = double.Parse(Console.ReadLine()!);
-double x = (b2 - b1) / (k1 - k2);
-double y = k1 * x + b1;
+int[] arr = new int[10];
+Console.WriteLine("Задан массив:");
+FillArray(arr);
+Console.WriteLine(String.Join(", ", arr));
 Console.WriteLine();
-Console.WriteLine($"Координаты точки пересечения прямых: ({x:f2} ; {y:f2})");
+Console.Write("Введите число для сравнения с элементами массива: ");
+int a = int.Parse(Console.ReadLine());
+Console.WriteLine();
+Console.WriteLine($"Произведение всех элементов меньше {a} равно {Multiply(arr, a)}. ");
 Console.WriteLine();
