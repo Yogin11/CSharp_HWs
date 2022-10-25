@@ -1,4 +1,4 @@
-﻿/* ДЗ№ 8 
+﻿/* 
 Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, 
   которая будет построчно выводить массив, добавляя индексы каждого элемента.
 Массив размером 2 x 2 x 2
@@ -9,70 +9,163 @@
 
 */
 // формируем одномерный массив, из которого будет сформирован трехмерный.
-void Form1darr(int[] arr)
+// void Form1darr(int[] arr)
+// {
+// for (int i = 0; i < arr.Length; i++)
+// {
+// bool k = true;
+// while (k)
+// {
+// arr[i] = new Random().Next(10, 100);
+// if (i > 0) k = Proverka(arr, arr[i], i);
+// else k = false;
+// }
+// }
+// }
+// 
+////Проверка элементов на совпадение
+// bool Proverka(int[] arr, int n, int i)
+// {
+// if (i > 0)
+// {
+// if (n == arr[i - 1]) return true;
+// else return Proverka(arr, n, i - 1);
+// }
+// else
+// return false;
+// }
+////Заполнение трехмерного массива
+// int[,,] Massiv3D(int[] arr, int m, int n, int o)
+// {
+// int[,,] array3d = new int[m, n, o];
+// int count = 0;
+// for (int i = 0; i < m; i++)
+// for (int j = 0; j < n; j++)
+// for (int k = 0; k < o; k++)
+// {
+// array3d[i, j, k] = arr[count];
+// count += 1;
+// }
+// return array3d;
+// }
+////Печать 3D массива
+// void Print3D(int[,,] arr3D)
+// {
+// for (int i = 0; i < arr3D.GetLength(0); i++)
+// for (int j = 0; j < arr3D.GetLength(1); j++)
+// {
+// for (int k = 0; k < arr3D.GetLength(2); k++)
+// {
+// Console.Write($" {arr3D[i, j, k]}({i},{j},{k}) ");
+// }
+// Console.WriteLine();
+// }
+// }
+// 
+// Console.Clear();
+// Console.Write("Введите 1-ю размерность массива (m): ");
+// int m = int.Parse(Console.ReadLine()!);
+// Console.Write("Введите 2-ю размерность массива (n): ");
+// int n = int.Parse(Console.ReadLine()!);
+// Console.Write("Введите 3-ю размерность массива (o): ");
+// int o = int.Parse(Console.ReadLine()!);
+// 
+// int[] arr = new int[m * n * o];
+// Form1darr(arr);
+// Console.WriteLine();
+// int[,,] arr3D = Massiv3D(arr, m, n, o);
+// Print3D(arr3D);
+// Console.WriteLine();
+
+/*
+Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
+Например, на выходе получается вот такой массив:
+01 02 03 04
+12 13 14 05
+11 16 15 06
+10 09 08 07
+
+*/
+
+void Print(int[,] arr)
 {
-    for (int i = 0; i < arr.Length; i++)
+    for (int i = 0; i < arr.GetLength(0); i++)
     {
-        bool k = true;
-        while (k)
+        for (int j = 0; j < arr.GetLength(1); j++)
         {
-            arr[i] = new Random().Next(10, 100);
-            if (i > 0) k = Proverka(arr, arr[i], i);
-            else k = false;
+            Console.Write(string.Format("{0,4} ", arr[i, j]));
         }
+        Console.WriteLine();
     }
 }
 
-// Проверка элементов на совпадение
-bool Proverka(int[] arr, int n, int i)
-{
-    if (i > 0)
-    {
-        if (n == arr[i - 1]) return true;
-        else return Proverka(arr, n, i - 1);
-    }
-    else
-        return false;
-}
-//Заполнение трехмерного массива
-int[,,] Massiv3D(int[] arr, int m, int n, int o)
-{
-    int[,,] array3d = new int[m, n, o];
-    int count = 0;
-    for (int i = 0; i < m; i++)
-        for (int j = 0; j < n; j++)
-            for (int k = 0; k < o; k++)
-            {
-                array3d[i, j, k] = arr[count];
-                count += 1;
-            }
-    return array3d;
-}
-//Печать 3D массива
-void Print3D(int[,,] arr3D)
-{
-    for (int i = 0; i < arr3D.GetLength(0); i++)
-        for (int j = 0; j < arr3D.GetLength(1); j++)
-        {
-            for (int k = 0; k < arr3D.GetLength(2); k++)
-            {
-                Console.Write($" {arr3D[i, j, k]}({i},{j},{k}) ");
-            }
-            Console.WriteLine();
-        }
-}
 
+void Recurse(int[,] arr, int x, int y, int upX, int upY, int downX, int downY, int count, string dir)
+{
+
+    if (count <= arr.Length)
+    {
+        arr[x, y] = count;
+        count = count + 1;
+        switch (dir)
+        {
+            case "right":
+                {
+                    y = y + 1;
+                    if (y == upY)
+                    {
+                        dir = "down";
+                        upY = upY - 1;
+                    }
+                    break;
+                }
+            case "down":
+                {
+                    x = x + 1;
+                    if (x == upX)
+                    {
+                        dir = "left";
+                        upX = upX - 1;
+                    }
+                    break;
+                }
+            case "left":
+                {
+                    y = y - 1;
+                    if (y == downY)
+                    {
+                        dir = "up";
+                        downY = downY + 1;
+                    }
+                    break;
+                }
+            case "up":
+                {
+                    x = x - 1;
+                    if (x == downX)
+                    {
+                        dir = "right";
+                        downX = downX + 1;
+                    }
+                    break;
+                }
+        }
+        Recurse(arr, x, y, upX, upY, downX, downY, count, dir);
+    }
+}
 Console.Clear();
-Console.Write("Введите 1-ю размерность массива (m): ");
-int m = int.Parse(Console.ReadLine()!);
-Console.Write("Введите 2-ю размерность массива (n): ");
-int n = int.Parse(Console.ReadLine()!);
-Console.Write("Введите 3-ю размерность массива (o): ");
-int o = int.Parse(Console.ReadLine()!);
-
-int[] arr = new int[m * n * o];
-Form1darr(arr);
-Console.WriteLine();
-int[,,] arr3D = Massiv3D(arr, m, n, o);
-Print3D(arr3D);
-Console.WriteLine();
+Console.Write(" Введите количество строк массива : ");
+int n = int.Parse(Console.ReadLine()!); 
+Console.Write(" Введите количество cтолбцов массива > 1: ");
+int m = int.Parse(Console.ReadLine()!); 
+int[,] arr = new int[n, m];
+int x = 0;
+int y = 0;
+int upX = n - 1;
+int upY = m - 1;
+int count = 1;
+string dir = "right";
+int downX = 1;
+int downY = 0;
+Recurse(arr, x, y, upX, upY, downX, downY, count, dir);
+Print(arr);
