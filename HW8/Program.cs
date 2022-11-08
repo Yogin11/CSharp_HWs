@@ -1,4 +1,70 @@
 ﻿/* 
+Задача 54 
+Задайте двумерный массив, напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
+Например, задан массив:
+1 4 7 2
+5 9 2 3
+8 4 2 4
+В итоге получается вот такой массив:
+7 4 2 1
+9 5 3 2
+8 4 4 2
+
+*/
+int[,] GetArray(int m, int n, int min, int max)
+{
+    int[,] result = new int[m, n];
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            result[i, j] = new Random().Next(min, max);
+        }
+    }
+    return result;
+}
+
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write($"{array[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+}
+
+void LinesSortedArray(int[,] array)
+{
+    int[] lineArr = new int[array.GetLength(1)];
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            lineArr[j] = array[i, j];
+        }
+        Array.Sort(lineArr);
+        Array.Reverse(lineArr);
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+             array[i, j] = lineArr[j]; 
+        }
+    }
+}
+
+Console.WriteLine("Введите количество строк: ");
+int rows = int.Parse(Console.ReadLine()!);
+Console.WriteLine("Введите количество столбцов: ");
+int columns = int.Parse(Console.ReadLine()!);
+int[,] array = GetArray(rows, columns, 0, 10);
+PrintArray(array);
+Console.WriteLine();
+LinesSortedArray(array);
+PrintArray(array);
+
+/* 
 Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, 
   которая будет построчно выводить массив, добавляя индексы каждого элемента.
 Массив размером 2 x 2 x 2
@@ -87,85 +153,90 @@
 
 */
 
-void Print(int[,] arr)
-{
-    for (int i = 0; i < arr.GetLength(0); i++)
-    {
-        for (int j = 0; j < arr.GetLength(1); j++)
-        {
-            Console.Write(string.Format("{0,4} ", arr[i, j]));
-        }
-        Console.WriteLine();
-    }
-}
-
-
-void Recurse(int[,] arr, int x, int y, int upX, int upY, int downX, int downY, int count, string dir)
-{
-
-    if (count <= arr.Length)
-    {
-        arr[x, y] = count;
-        count = count + 1;
-        switch (dir)
-        {
-            case "right":
-                {
-                    y = y + 1;
-                    if (y == upY)
-                    {
-                        dir = "down";
-                        upY = upY - 1;
-                    }
-                    break;
-                }
-            case "down":
-                {
-                    x = x + 1;
-                    if (x == upX)
-                    {
-                        dir = "left";
-                        upX = upX - 1;
-                    }
-                    break;
-                }
-            case "left":
-                {
-                    y = y - 1;
-                    if (y == downY)
-                    {
-                        dir = "up";
-                        downY = downY + 1;
-                    }
-                    break;
-                }
-            case "up":
-                {
-                    x = x - 1;
-                    if (x == downX)
-                    {
-                        dir = "right";
-                        downX = downX + 1;
-                    }
-                    break;
-                }
-        }
-        Recurse(arr, x, y, upX, upY, downX, downY, count, dir);
-    }
-}
-Console.Clear();
-Console.Write(" Введите количество строк массива : ");
-int n = int.Parse(Console.ReadLine()!); 
-Console.Write(" Введите количество cтолбцов массива > 1: ");
-int m = int.Parse(Console.ReadLine()!); 
-int[,] arr = new int[n, m];
-int x = 0;
-int y = 0;
-int upX = n - 1;
-int upY = m - 1;
-int count = 1;
-string dir = "right";
-int downX = 1;
-int downY = 0;
-Recurse(arr, x, y, upX, upY, downX, downY, count, dir);
-Print(arr);
+// void Print(int[,] arr)
+// {
+// for (int i = 0; i < arr.GetLength(0); i++)
+// {
+// for (int j = 0; j < arr.GetLength(1); j++)
+// {
+// Console.Write(string.Format("{0,4} ", arr[i, j]));
+// }
+// Console.WriteLine();
+// }
+// }
+// 
+// 
+// void Recurse(int[,] arr, int x, int y, int upX, int upY, int downX, int downY, int count, string dir)
+// {
+// 
+// if (count <= arr.Length)
+// {
+// arr[x, y] = count;
+// count = count + 1;
+// switch (dir)
+// {
+// case "right":
+// {
+// y = y + 1;
+// if (y == upY)
+// {
+// dir = "down";
+// upY = upY - 1;
+// }
+// break;
+// }
+// case "down":
+// {
+// x = x + 1;
+// if (x == upX)
+// {
+// dir = "left";
+// upX = upX - 1;
+// }
+// break;
+// }
+// case "left":
+// {
+// y = y - 1;
+// if (y == downY)
+// {
+// dir = "up";
+// downY = downY + 1;
+// }
+// break;
+// }
+// case "up":
+// {
+// x = x - 1;
+// if (x == downX)
+// {
+// dir = "right";
+// downX = downX + 1;
+// }
+// break;
+// }
+// }
+// Recurse(arr, x, y, upX, upY, downX, downY, count, dir);
+// }
+// }
+// Console.Write(" Введите количество строк массива : ");
+// Console.WriteLine();
+// 
+// Console.Write(" Введите количество cтолбцов массива > 1: ");
+// Console.WriteLine();
+// 
+// 
+// int n = 7;
+// int m = 7;
+// int[,] arr = new int[n, m];
+// int x = 0;
+// int y = 0;
+// int upX = n - 1;
+// int upY = m - 1;
+// int count = 1;
+// string dir = "right";
+// int downX = 1;
+// int downY = 0;
+// Recurse(arr, x, y, upX, upY, downX, downY, count, dir);
+// Print(arr);
+// 
