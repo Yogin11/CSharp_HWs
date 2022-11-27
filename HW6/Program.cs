@@ -86,7 +86,7 @@ FillArray(arr);
 Console.WriteLine(String.Join(", ", arr));
 Console.WriteLine();
 Console.Write("Введите число для сравнения с элементами массива: ");
-int a = int.Parse(Console.ReadLine());
+int a = int.Parse(Console.ReadLine()!);
 Console.WriteLine();
 Console.WriteLine($"Произведение всех элементов меньше {a} равно {Multiply(arr, a)}. ");
 Console.WriteLine();

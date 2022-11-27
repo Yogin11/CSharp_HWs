@@ -7,18 +7,18 @@
 918 -> 1
 */
 
-int g = 0;
-Console.WriteLine("Введите трехзначное число");
-while (g == 0)  
-{ 
-    int a = int.Parse(Console.ReadLine()!);
-    if (a > 99 &&  a < 1000) 
-    {
-        g = (a%100 - a%10)/10;
-        Console.WriteLine ($" Вторая цифра {g}");
-    }
-    else Console.WriteLine(" Введите ТРЕХЗНАЧНОЕ число");
-}
+// int g = 0;
+// Console.WriteLine("Введите трехзначное число");
+// while (g == 0)  
+// { 
+    // int a = int.Parse(Console.ReadLine()!);
+    // if (a > 99 &&  a < 1000) 
+    // {
+        // g = (a%100 - a%10)/10;
+        // Console.WriteLine ($" Вторая цифра {g}");
+    // }
+    // else Console.WriteLine(" Введите ТРЕХЗНАЧНОЕ число");
+// }
 
 /* 
 Задача 13: Напишите программу, которая выводит третью цифру заданного числа или сообщает, 
@@ -31,18 +31,18 @@ while (g == 0)
 */
 
 //Работaет при числах меньше N
-Console.WriteLine("Введите число менее 100000");
-int a = int.Parse(Console.ReadLine()!);
-int N = 1000000;
-if (a <100) Console.WriteLine("третьей цифры нет");
-else 
-{
-    while (N>=1)
-    {
-        if (a/N>=100 && a/N < 1000) Console.WriteLine($"третья цифра {a/N%10}");
-        N = N/10;
-    }   
-}
+// Console.WriteLine("Введите число менее 100000");
+// int a = int.Parse(Console.ReadLine()!);
+// int N = 1000000;
+// if (a <100) Console.WriteLine("третьей цифры нет");
+// else 
+// {
+    // while (N>=1)
+    // {
+        // if (a/N>=100 && a/N < 1000) Console.WriteLine($"третья цифра {a/N%10}");
+        // N = N/10;
+    // }   
+// }
 
 
 /*

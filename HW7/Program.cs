@@ -18,15 +18,15 @@ m = 3, n = 4.
 // Console.WriteLine();
 // void FillPrintArray(int m, int n)
 // {
-    // for (int i = 0; i < m ; i++)
-    // {
-        // for (int j = 0; j < n; j++)
-        // {
-            // massiv[i,j] = new Random().NextDouble()* new Random().Next(-10,10);
-            // Console.Write(string.Format("{0,10:f1}", massiv[i,j]));
-        // }
-        // Console.WriteLine();
-    // }
+// for (int i = 0; i < m ; i++)
+// {
+// for (int j = 0; j < n; j++)
+// {
+// massiv[i,j] = new Random().NextDouble()* new Random().Next(-10,10);
+// Console.Write(string.Format("{0,10:f1}", massiv[i,j]));
+// }
+// Console.WriteLine();
+// }
 // }
 // 
 /*
@@ -55,22 +55,22 @@ i = 1, j = 2 -> 2
 // CheckNumber(massiv, i , j);
 // 
 // void FillArray(int m, int n){
-    // for (int i = 0; i < m ; i++) 
-    // {
-        // for (int j = 0; j < n; j++) {
-            // massiv[i,j] = new Random().Next(0,10);
-            // Console.Write(string.Format("{0,2}", massiv[i,j]));
-        // }
-        // Console.WriteLine();
-    // }
+// for (int i = 0; i < m ; i++) 
+// {
+// for (int j = 0; j < n; j++) {
+// massiv[i,j] = new Random().Next(0,10);
+// Console.Write(string.Format("{0,2}", massiv[i,j]));
+// }
+// Console.WriteLine();
+// }
 // }
 // 
 // void CheckNumber(int[,] arr, int i, int j)
 // {   
-    // if (arr.GetLength(0)-1 < i || arr.GetLength(1)-1 < j )
-        // Console.WriteLine($" i = {i}, j = {j}  -> такого числа в массиве нет ");
-    // else        
-        // Console.WriteLine($"  i = {i}, j = {j} -> искомое число: {arr[i,j]}  "  );
+// if (arr.GetLength(0)-1 < i || arr.GetLength(1)-1 < j )
+// Console.WriteLine($" i = {i}, j = {j}  -> такого числа в массиве нет ");
+// else        
+// Console.WriteLine($"  i = {i}, j = {j} -> искомое число: {arr[i,j]}  "  );
 // }
 
 /*
@@ -88,35 +88,36 @@ int m = int.Parse(Console.ReadLine()!);
 Console.Write("Введите размерность массива n: ");
 int n = int.Parse(Console.ReadLine()!);
 
-int[,] massiv = new int[m,n];
-FillArray(m,n);
+int[,] massiv = new int[m, n];
+FillArray(m, n);
 double[] mean = ArithMean(massiv);
 Console.Write("Cреднее арифметическое каждого столбца: ");
-Console.WriteLine(String.Join("; ", mean) );
+Console.WriteLine(String.Join("; ", mean));
 
 void FillArray(int m, int n)
 {
-    for (int i = 0; i < m ; i++) 
+    for (int i = 0; i < m; i++)
     {
-        for (int j = 0; j < n; j++) {
-            massiv[i,j] = new Random().Next(0,10);
-            Console.Write(string.Format("{0,2}", massiv[i,j]));
+        for (int j = 0; j < n; j++)
+        {
+            massiv[i, j] = new Random().Next(0, 10);
+            Console.Write(string.Format("{0,2}", massiv[i, j]));
         }
         Console.WriteLine();
     }
 }
 
 double[] ArithMean(int[,] arr)
-{   
-    double[] arith = new double[arr.GetLength(1)];  
+{
+    double[] arith = new double[arr.GetLength(1)];
     for (int j = 0; j < arr.GetLength(1); j++)
-    {   
-       double sum = 0;
+    {
+        double sum = 0;
         for (int i = 0; i < arr.GetLength(0); i++)
         {
-            sum += arr[i,j]; 
+            sum += arr[i, j];
         }
-    arith[j] = Math.Round(sum/arr.GetLength(1),1);    
+        arith[j] = Math.Round(sum / arr.GetLength(1), 1);
     }
     return arith;
 }

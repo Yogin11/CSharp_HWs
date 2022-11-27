@@ -175,6 +175,7 @@ else
 Вывести массив изначальный и массив с отсортированными нечетными столбцами
 */
 
+/*
 void ColumnsSortedArray(int[,] array)
 {
     int[] columnArr = new int[array.GetLength(0)];
@@ -206,7 +207,7 @@ ColumnsSortedArray(array);
 Console.WriteLine("Массив с отсортированными нечетными столбцами");
 PrintArray(array);
 Console.WriteLine();
-
+*/
 
 /* ---------------------------------------------------------------------------
 Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, 
@@ -299,7 +300,7 @@ Console.WriteLine();
 
 */
 
-/*
+
 void Print(int[,] arr)
 {
     for (int i = 0; i < arr.GetLength(0); i++)
@@ -312,6 +313,25 @@ void Print(int[,] arr)
     }
 }
 
+// Console.Write(" Введите количество строк массива : ");
+// Console.WriteLine();
+// 
+// Console.Write(" Введите количество cтолбцов массива > 1: ");
+// Console.WriteLine();
+
+int n = 5;
+int m = 5;
+int[,] arr = new int[n, m];
+int x = 0;
+int y = 0;
+int upX = n - 1;
+int upY = m - 1;
+int count = 1;
+string dir = "right";
+int downX = 1;
+int downY = 0;
+Recurse(arr, x, y, upX, upY, downX, downY, count, dir);
+Print(arr);
 
 void Recurse(int[,] arr, int x, int y, int upX, int upY, int downX, int downY, int count, string dir)
 {
@@ -366,24 +386,3 @@ void Recurse(int[,] arr, int x, int y, int upX, int upY, int downX, int downY, i
         Recurse(arr, x, y, upX, upY, downX, downY, count, dir);
     }
 }
-Console.Write(" Введите количество строк массива : ");
-Console.WriteLine();
-
-Console.Write(" Введите количество cтолбцов массива > 1: ");
-Console.WriteLine();
-
-
-int n = 7;
-int m = 7;
-int[,] arr = new int[n, m];
-int x = 0;
-int y = 0;
-int upX = n - 1;
-int upY = m - 1;
-int count = 1;
-string dir = "right";
-int downX = 1;
-int downY = 0;
-Recurse(arr, x, y, upX, upY, downX, downY, count, dir);
-Print(arr);
-*/

@@ -30,9 +30,9 @@ int RecursSum(int M, int N)
     if (M == N) return N;
     return M + RecursSum(M + 1, N);
 }
-Console.WriteLine("Введите число М (нижнюю границу)");
+Console.WriteLine("Введите натуральное число М (нижнюю границу)");
 int M = int.Parse(Console.ReadLine()!);
-Console.WriteLine("Введите число N (верхнюю границу)");
+Console.WriteLine("Введите натуральное число N (верхнюю границу)");
 int N = int.Parse(Console.ReadLine()!);
 if (M > N)
     Console.WriteLine("неверные данные  -> M должно быть меньше N");
@@ -51,6 +51,7 @@ double AkkermanF(double M, double N)
     if (M > 0 && N == 0) return AkkermanF(M - 1, 1);
     return AkkermanF(M - 1, AkkermanF(M, N - 1));
 }
+
 Console.WriteLine("Введите неотрицательное число М ");
 double M = double.Parse(Console.ReadLine()!);
 Console.WriteLine("Введите неотрицательное число N ");
